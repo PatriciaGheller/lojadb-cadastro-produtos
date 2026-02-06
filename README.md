@@ -9,20 +9,31 @@ Além disso, a biblioteca **Faker** é usada para gerar dados fictícios e popul
 - Conexão com banco de dados PostgreSQL.
 - Criação da tabela `PRODUTO`.
 - Inserção de dados fictícios com Faker.
-- Estrutura preparada para evoluir com interface gráfica em Tkinter.
+- Interface gráfica em Tkinter.
 
 ---
 
 ## 📂 Estrutura do Projeto
 cadastro_produtos/
 │
-├── db/
-│   ├── conectar.py       # Conexão com o banco
-│   ├── cria_tabela.py   # Criação da tabela PRODUTO
-│   └── gera_dados.py    # Inserção de dados fictícios
-├── venv/                # Ambiente virtual (ignorado pelo Git)
-├── requirements.txt      # Dependências do projeto
-└── README.md
+├── db/                        # Lógica de banco de dados
+│   ├── __init__.py             # arquivo vazio para marcar como pacote
+│   ├── conectar.py             # Conexão com o banco
+│   ├── cria_tabela.py          # Criação da tabela PRODUTO
+│   ├── gera_dados.py           # Inserção de dados fictícios
+│   ├── listar_produtos.py      # Consulta de registros
+│   └── app_bd.py               # Classe AppBD com CRUD completo
+│
+├── gui/                       # Interface gráfica (Tkinter)
+│   ├── __init__.py             # arquivo vazio para marcar como pacote
+│   ├── AppGUI.py               # Lógica da interface gráfica
+│   └── main_window.py          # Janela principal (pode ser usado depois)
+│
+├── venv/                      # Ambiente virtual (ignorado pelo Git)
+├── main.py                    # Ponto de entrada da aplicação
+├── requirements.txt            # Dependências do projeto
+└── README.md                   # Documentação
+
 
 
 ---
