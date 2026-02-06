@@ -1,7 +1,8 @@
 import psycopg2
 from psycopg2 import Error
 from faker import Faker
-from cria_tabela import conexao, meu_cursor
+from db.cria_tabela import conexao, meu_cursor
+
 
 class AppBD:
     def __init__(self):

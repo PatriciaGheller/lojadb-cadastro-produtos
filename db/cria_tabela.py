@@ -2,7 +2,8 @@
 # pip install tk    
 
 import psycopg2
-from conectar import conexao, meu_cursor
+from db.conectar import conexao, meu_cursor
+
 
 # Criar conexão
 conexao = psycopg2.connect(
@@ -20,8 +21,8 @@ meu_cursor = conexao.cursor()
 if __name__ == "__main__":
     
 
-# Criar tabela
-meu_cursor.execute('''
+    # Criar tabela
+    meu_cursor.execute('''
                 CREATE TABLE IF NOT EXISTS PRODUTO (
                     CODIGO SERIAL PRIMARY KEY,
                     NOME VARCHAR(100) NOT NULL,
