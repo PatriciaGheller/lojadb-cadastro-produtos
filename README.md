@@ -9,7 +9,7 @@ Além disso, a biblioteca **Faker** é usada para gerar dados fictícios e popul
 - Conexão com banco de dados PostgreSQL.
 - Criação da tabela `PRODUTO`.
 - Inserção de dados fictícios com Faker.
-- Interface gráfica em Tkinter.
+- Interface gráfica em Tkinter para cadastro, atualização, exclusão e listagem de produtos.
 
 ---
 
@@ -17,23 +17,22 @@ Além disso, a biblioteca **Faker** é usada para gerar dados fictícios e popul
 cadastro_produtos/
 │
 ├── db/                        # Lógica de banco de dados
-│   ├── __init__.py             # arquivo vazio para marcar como pacote
-│   ├── conectar.py             # Conexão com o banco
+│   ├── init.py             # arquivo vazio para marcar como pacote
+│   ├── conectar.py              # Conexão com o banco
 │   ├── cria_tabela.py          # Criação da tabela PRODUTO
 │   ├── gera_dados.py           # Inserção de dados fictícios
 │   ├── listar_produtos.py      # Consulta de registros
 │   └── app_bd.py               # Classe AppBD com CRUD completo
 │
 ├── gui/                       # Interface gráfica (Tkinter)
-│   ├── __init__.py             # arquivo vazio para marcar como pacote
-│   ├── AppGUI.py               # Lógica da interface gráfica
-│   └── main_window.py          # Janela principal (pode ser usado depois)
+│   ├── init.py             # arquivo vazio para marcar como pacote
+│   ├── AppGUI.py                # Lógica da interface gráfica
+│   └── main_window.py          # Configuração da janela principal
 │
 ├── venv/                      # Ambiente virtual (ignorado pelo Git)
-├── main.py                    # Ponto de entrada da aplicação
-├── requirements.txt            # Dependências do projeto
-└── README.md                   # Documentação
-
+├── main.py                     # Ponto de entrada da aplicação
+├── requirements.txt             # Dependências do projeto
+└── README.md                    # Documentação
 
 
 ---
@@ -42,9 +41,9 @@ cadastro_produtos/
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/cadastro-produtos.git
-   cd cadastro-produtos
-
+   git clone https://github.com/seu-usuario/cadastro_produtos.git
+   cd cadastro_produtos
+    ```
 2. Crie e ative o ambiente virtual:
     ```
     python -m venv venv
@@ -60,15 +59,15 @@ cadastro_produtos/
 
 - Faker
 
-Instale manualmente se necessário:
+- Instale manualmente se necessário:
     ```
     pip install psycopg2-binary faker
     ```
 ## 🗄️ Banco de Dados
-Crie um banco chamado postgres (ou ajuste no conectar.py):
-    ```
-    CREATE DATABASE postgres;
-    ```
+Crie um banco chamado cadastro_produtos (ou ajuste no conectar.py):
+
+    
+    CREATE DATABASE cadastro_produtos;
 
 Tabela PRODUTO:
 
@@ -79,23 +78,34 @@ Tabela PRODUTO:
     PRECO NUMERIC(10, 2) NOT NULL,
     QUANTIDADE INT NOT NULL
     );
-    
+
 ## ▶️ Executando
+Scripts individuais
 1. Conectar ao banco:
-python db/conectar.py
 
+    ```
+    python db/conectar.py
+    ```
 2. Criar tabela:
-python db/cria_tabela.py
 
+    ```
+    python db/cria_tabela.py
+    ```
 3. Inserir dados fictícios:
-python db/gera_dados.py
 
+    ```
+    python db/gera_dados.py
+    ```
+#### Aplicação completa com interface gráfica
+    
+    python main.py
+    
 ## 📌 Próximos Passos
-- Implementar interface gráfica com Tkinter.
+- Adicionar relatórios e consultas personalizadas.
 
-- Adicionar operações de atualização e exclusão (CRUD completo).
+- Implementar filtros de pesquisa na interface.
 
-- Criar relatórios e consultas personalizadas.
+- Exportar dados para CSV/Excel.
 
 ## 👩‍💻 Autor
-Projeto desenvolvido por Patrícia Ghelle como prática de integração Python + PostgreSQL.
+Projeto desenvolvido por Patrícia Gheller como prática de integração Python + PostgreSQL.
