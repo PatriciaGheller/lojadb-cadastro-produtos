@@ -1,13 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
-from db.app_bd import AppBD
 
 class PrincipalBD:
     def __init__(self, root, db):
         self.root = root
         self.db = db
-        self.root.title("Cadastro de Produtos")
-        self.root.geometry("600x400")
         self.create_widgets()
         self.carregarDadosIniciais()
 
@@ -52,6 +49,7 @@ class PrincipalBD:
         self.tree.grid(row=6, column=0, columnspan=2)
         self.tree.bind('ButtonRelease-1', self.apresentarRegistrosSelecionados)
 
+    # Métodos CRUD
     def fCadastrarProduto(self):
         codigo = self.txtCodigo.get()
         nome = self.txtNome.get()
@@ -103,9 +101,3 @@ class PrincipalBD:
         registros = self.db.selecionar_dados()
         for registro in registros:
             self.tree.insert("", "end", values=registro)
-
-# Criando a interface gráfica
-root = tk.Tk()
-app_bd = AppBD()
-app_gui = PrincipalBD(root, app_bd)
-root.mainloop()
